@@ -1,4 +1,4 @@
-from __future__ import print_function
+
 import platform
 import sys
 import argparse
@@ -15,7 +15,7 @@ def parse_args():
     parser = argparse.ArgumentParser(description='iDeepColor: deep interactive colorization')
     # basic parameters
     parser.add_argument('--win_size', dest='win_size', help='the size of the main window', type=int, default=512)
-    parser.add_argument('--image_file', dest='image_file', help='input image', type=str, default='test_imgs/mortar_pestle.jpg')
+    parser.add_argument('--image_file', dest='image_file', help='input image', type=str, default='test_imgs/park.jpg')
     parser.add_argument('--gpu', dest='gpu', help='gpu id', type=int, default=0)
     parser.add_argument('--cpu_mode', dest='cpu_mode', help='do not use gpu', action='store_true')
 

@@ -6,7 +6,7 @@ import sklearn.neighbors as nn
 import caffe
 from skimage import color
 import matplotlib.pyplot as plt
-import color_quantization as cq
+from . import color_quantization as cq
 
 # ***************************************
 # ***** LAYERS FOR GLOBAL HISTOGRAM *****

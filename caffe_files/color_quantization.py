@@ -2,7 +2,7 @@
 import numpy as np
 from IPython.core.debugger import Pdb as pdb
 import sklearn.neighbors as nn
-import util
+from . import util
 import caffe
 
 class NNEncode():

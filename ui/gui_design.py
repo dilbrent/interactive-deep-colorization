@@ -140,11 +140,11 @@ class GUIDesign(QWidget):
         self.drawWidget.enable_gray()
 
     def quit(self):
-        print('time spent = %3.3f' % (time.time() - self.start_t))
+        print(('time spent = %3.3f' % (time.time() - self.start_t)))
         self.close()
 
     def save(self):
-        print('time spent = %3.3f' % (time.time() - self.start_t))
+        print(('time spent = %3.3f' % (time.time() - self.start_t)))
         self.drawWidget.save_result()
 
     def load(self):

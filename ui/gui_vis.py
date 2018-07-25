@@ -55,7 +55,7 @@ class GUI_VIS(QWidget):
         if event.button() == Qt.LeftButton and self.is_valid_point(pos):  # click the point
             if self.result is not None:
                 color = self.result[y, x, :]  #
-                print('color', color)
+                print(('color', color))
 
     def mouseMoveEvent(self, event):
         pass

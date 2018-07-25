@@ -10,7 +10,7 @@ class UserEdit(object):
         self.win_size = win_size
         self.img_size = img_size
         self.load_size = load_size
-        print('image_size', self.img_size)
+        print(('image_size', self.img_size))
         max_width = np.max(self.img_size)
         self.scale = float(max_width) / self.load_size
         self.dw = int((self.win_size - img_size[0]) // 2)
@@ -104,7 +104,7 @@ class UIControl:
         for id, ue in enumerate(self.userEdits):
             if ue.is_same(pnt):
                 self.userEdits.remove(ue)
-                print('remove user edit %d\n' % id)
+                print(('remove user edit %d\n' % id))
                 isErase = True
                 break
         return isErase
@@ -118,13 +118,13 @@ class UIControl:
             if ue.is_same(pnt):
                 self.userEdit = ue
                 isNew = False
-                print('select user edit %d\n' % id)
+                print(('select user edit %d\n' % id))
                 break
 
         if self.userEdit is None:
             self.userEdit = PointEdit(self.win_size, self.load_size, self.img_size)
             self.userEdits.append(self.userEdit)
-            print('add user edit %d\n' % len(self.userEdits))
+            print(('add user edit %d\n' % len(self.userEdits)))
             self.userEdit.add(pnt, color, userColor, width, self.ui_count)
             return userColor, width, isNew
         else:

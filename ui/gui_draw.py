@@ -46,7 +46,7 @@ class GUIDraw(QWidget):
         self.update()
 
     def init_result(self, image_file):
-        self.read_image(image_file.encode('utf-8'))  # read an image
+        self.read_image(image_file)  # read an image
         self.reset()
 
     def get_batches(self, img_dir):
@@ -78,7 +78,7 @@ class GUIDraw(QWidget):
         max_width = max(h, w)
         r = self.win_size / float(max_width)
         self.scale = float(self.win_size) / self.load_size
-        print('scale = %f' % self.scale)
+        print(('scale = %f' % self.scale))
         rw = int(round(r * w / 4.0) * 4)
         rh = int(round(r * h / 4.0) * 4)
 
@@ -170,7 +170,7 @@ class GUIDraw(QWidget):
                 y = int(np.round(pnt.y()))
                 return QPoint(x, y)
             else:
-                print('WARNING: invalid point (%d, %d)\n' % (pnt.x(), pnt.y()))
+                print(('WARNING: invalid point (%d, %d)\n' % (pnt.x(), pnt.y())))
                 return None
 
     def init_color(self):
@@ -218,7 +218,7 @@ class GUIDraw(QWidget):
         self.eraseMode = not self.eraseMode
 
     def load_image(self):
-        img_path = unicode(QFileDialog.getOpenFileName(self, 'load an input image'))
+        img_path = str(QFileDialog.getOpenFileName(self, 'load an input image'))
         self.init_result(img_path)
 
     def save_result(self):
@@ -228,7 +228,7 @@ class GUIDraw(QWidget):
         suffix = datetime.datetime.now().strftime("%y%m%d_%H%M%S")
         save_path = "_".join([path, self.method, suffix])
 
-        print('saving result to <%s>\n' % save_path)
+        print(('saving result to <%s>\n' % save_path))
         if not os.path.exists(save_path):
             os.mkdir(save_path)
 
@@ -307,7 +307,7 @@ class GUIDraw(QWidget):
     def wheelEvent(self, event):
         d = event.delta() / 120
         self.brushWidth = min(4.05 * self.scale, max(0, self.brushWidth + d * self.scale))
-        print('update brushWidth = %f' % self.brushWidth)
+        print(('update brushWidth = %f' % self.brushWidth))
         self.update_ui(move_point=True)
         self.update()
 
@@ -321,7 +321,7 @@ class GUIDraw(QWidget):
         return d < 25
 
     def mousePressEvent(self, event):
-        print('mouse press', event.pos())
+        print(('mouse press', event.pos()))
         pos = self.valid_point(event.pos())
 
         if pos is not None:
